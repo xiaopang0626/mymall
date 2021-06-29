@@ -1,0 +1,69 @@
+server:
+  port: 10201
+spring:
+  application:
+    name: resilience4j-service
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://xp:123456@localhost:10004/eureka/
+  #集群版
+  #instance:
+  #  instance-id: resilience4j-service
+resilience4j:
+  circuitbreaker:
+    backends:
+      backendA:
+        # 表示断路器关闭状态下，环形缓冲区的大小
+        ringBufferSizeInClosedState: 5
+        # 表示断路器处于 HalfOpen 状态下，环形缓冲区的大小
+        ringBufferSizeInHalfOpenState: 3
+        # 表示断路器从 open 切换到 half closed 状态时，需要保持的时间
+        waitInterval: 5000
+        # 表示故障率阈值百分比，超过这个阈值，断路器就会打开
+        failureRateThreshold: 50
+        # 表示事件缓冲区大小
+        eventConsumerBufferSize: 10
+        # 表示开启健康检测
+        registerHealthIndicator: true
+        # recordFailurePredicate: cn.com.scitc.RecordFailurePredicate
+        recordExceptions:
+          - org.springframework.web.client.HttpServerErrorException
+        ignoreExceptions:
+          - org.springframework.web.client.HttpClientErrorException
+  retry:
+    retry-aspect-order: 399
+    backends:
+      retryBackendA:
+        maxRetryAttempts: 3 #最大重试次数
+        waitDuration: 600 #下次重试等待时间,最小为100ms
+        eventConsumerBufferSize: 1 #重试事件缓冲区大小
+        enableExponentialBackoff: true #是否开启指数退避抖动算法，当一次调用失败后，如果在相同的时间间隔内发起重试，有可能发生连续的调用失败，因此可以开启指数退避抖动算法
+        exponentialBackoffMultiplier: 2 #表示时间间隔乘数
+        enableRandomizedWait: false #下次重试的时间间隔是否随机
+        randomizedWaitFactor: 2
+        # retryExceptionPredicate: cn.com.scitc.RecordFailurePredicate
+        retryExceptions: #表示需要重试的异常
+          - java.io.IOException
+        ignoreExceptions: #表示忽略的异常
+          - cn.com.scitc.exception.IgnoredException
+  ratelimiter:
+    limiters:
+      # backendA 在这里依然表示配置的名称，在 Java 代码中，我们将通过指定限流工具的名称来使用某一种限流策略
+      backendA:
+        # limitForPeriod 表示请求频次的阈值
+        limitForPeriod: 1
+        # limitRefreshPeriodInMillis 表示频次刷新的周期
+        limitRefreshPeriodInMillis: 5000
+        # timeoutInMillis 许可期限的等待时间，默认为5秒
+        timeoutInMillis: 5000
+        # subscribeForEvents 表示开启事件订阅
+        subscribeForEvents: true
+        # registerHealthIndicator 表示开启健康监控
+        registerHealthIndicator: true
+        # eventConsumerBufferSize 表示事件缓冲区大小
+        eventConsumerBufferSize: 100
+service-url:
+  user-service: http://user-service

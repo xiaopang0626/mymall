@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.xp.mall</groupId>
-    <artifactId>user-service</artifactId>
+    <artifactId>ribbon-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>user-service</name>
+    <name>ribbon-service</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>11</java.version>
@@ -26,6 +26,10 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -35,18 +39,6 @@
         <dependency>
             <groupId>com.xp.mall</groupId>
             <artifactId>mall-common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.20</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.xp.mall</groupId>
-            <artifactId>mall-model</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

@@ -1,0 +1,14 @@
+server:
+  port: 12001
+spring:
+  application:
+    name: feign-service
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://xp:123456@localhost:10004/eureka/
+feign:
+  sentinel:
+    enabled: true
