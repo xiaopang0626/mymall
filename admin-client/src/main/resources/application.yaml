@@ -3,10 +3,12 @@ server:
 spring:
   application:
     name: admin-client
-  boot:
-    admin:
-      client:
-        url: http://localhost:15001
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://xp:123456@localhost:10004/eureka/
 management:
   endpoints:
     web:
@@ -17,4 +19,4 @@ management:
       show-details: always
 logging:
   file:
-    name: admin-client.log #Ìí¼Ó¿ªÆôadminµÄÈÕÖ¾¼à¿Ø
+    name: admin-client.log #æ·»åŠ å¼€å¯adminçš„æ—¥å¿—ç›‘æ§
