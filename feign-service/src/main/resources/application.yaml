@@ -10,5 +10,5 @@ eureka:
     service-url:
       defaultZone: http://xp:123456@localhost:10004/eureka/
 feign:
-  sentinel:
+  circuitbreaker:
     enabled: true

@@ -1,0 +1,15 @@
+2021-06-30 12:04:38.850  INFO 13732 --- [main] c.x.m.a.AdminClientApplication           : Starting AdminClientApplication using Java 11.0.4 on DESKTOP-FTMOUON with PID 13732 (D:\code\mymall\admin-client\target\classes started by xp in D:\code\mymall)
+2021-06-30 12:04:38.853  INFO 13732 --- [main] c.x.m.a.AdminClientApplication           : No active profile set, falling back to default profiles: default
+2021-06-30 12:04:39.763  INFO 13732 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 15002 (http)
+2021-06-30 12:04:39.773  INFO 13732 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-06-30 12:04:39.774  INFO 13732 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.48]
+2021-06-30 12:04:39.834  INFO 13732 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-06-30 12:04:39.835  INFO 13732 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 907 ms
+2021-06-30 12:04:40.305  INFO 13732 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2021-06-30 12:04:40.349  INFO 13732 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 15002 (http) with context path ''
+2021-06-30 12:04:40.363  INFO 13732 --- [main] c.x.m.a.AdminClientApplication           : Started AdminClientApplication in 2.173 seconds (JVM running for 3.548)
+2021-06-30 12:04:41.130  INFO 13732 --- [RMI TCP Connection(3)-172.18.80.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-06-30 12:04:41.131  INFO 13732 --- [RMI TCP Connection(3)-172.18.80.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-06-30 12:04:41.132  INFO 13732 --- [RMI TCP Connection(3)-172.18.80.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-06-30 12:04:51.620  WARN 13732 --- [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Failed to register application as Application(name=admin-client, managementUrl=http://DESKTOP-FTMOUON:15002/actuator, healthUrl=http://DESKTOP-FTMOUON:15002/actuator/health, serviceUrl=http://DESKTOP-FTMOUON:15002/) at spring-boot-admin ([http://localhost:15001/instances]): I/O error on POST request for "http://localhost:15001/instances": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect. Further attempts are logged on DEBUG level
+2021-06-30 12:05:47.004  INFO 13732 --- [registrationTask1] d.c.b.a.c.r.ApplicationRegistrator       : Application registered itself as b53a32e30401

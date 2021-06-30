@@ -1,0 +1,24 @@
+server:
+  port: 13002
+spring:
+  application:
+    name: config-security-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/xiaopang0626/cloud.git
+          username:
+          password:
+          clone-on-start: true
+          search-paths: '{application}'
+  security: #生效,但是启动后无法访问配置文件,不知道什么原因
+    user:
+      name: xp
+      password: 123456
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://xp:123456@localhost:10004/eureka/

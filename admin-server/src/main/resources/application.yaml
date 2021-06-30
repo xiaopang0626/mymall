@@ -1,0 +1,5 @@
+server:
+  port: 15001
+spring:
+  application:
+    name: admin-server

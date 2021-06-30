@@ -1,0 +1,24 @@
+server:
+  port: 14001
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      profile: dev
+      label: master
+      name: config
+      discovery:
+        enabled: true
+        service-id: config-server
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://xp:123456@localhost:10004/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'refresh'
